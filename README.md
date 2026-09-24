@@ -1,0 +1,4 @@
+- App: http://127.0.0.1:8000
+- Health check: http://127.0.0.1:8000/health
+- API do
+- cs: http://127.0.0.1:8000/docs
