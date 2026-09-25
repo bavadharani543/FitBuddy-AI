@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block title %}FitBuddy — AI Fitness Planner{% endblock %}
+{% block content %}
+<section class="hero">
+  <div>
+    <p class="eyebrow">AI-POWERED FITNESS PLANNING</p>
+    <h1>Build a 7-day plan that fits your goal.</h1>
+    <p class="subtitle">Enter your basic profile and preferred intensity. Gemini will generate a structured weekly routine and a practical nutrition/recovery tip.</p>
+  </div>
+</section>
+
+<section class="card">
+  <h2>Your fitness profile</h2>
+  <form action="/generate-workout" method="post" class="grid-form">
+    <label>Name
+      <input name="username" required maxlength="120" placeholder="e.g. Alex">
+    </label>
+    <label>User ID
+      <input name="user_id" required maxlength="100" placeholder="e.g. alex01">
+    </label>
+    <label>Age
+      <input name="age" type="number" min="13" max="100" required>
+    </label>
+    <label>Weight (kg)
+      <input name="weight" type="number" min="20" max="400" step="0.1" required>
+    </label>
+    <label>Fitness goal
+      <input name="goal" required maxlength="80" placeholder="Weight loss, muscle gain, wellness...">
+    </label>
+    <label>Workout intensity
+      <select name="intensity" required>
+        <option value="low">Low</option>
+        <option value="medium" selected>Medium</option>
+        <option value="high">High</option>
+      </select>
+    </label>
+    <button class="primary" type="submit">Generate 7-Day Plan</button>
+  </form>
+</section>
+
+<section class="notice">
+  <strong>Safety:</strong> If you have an injury, medical condition, are pregnant, are under 18, or need individualized clinical guidance, consult an appropriately qualified professional before following an exercise or nutrition plan.
+</section>
+{% endblock %}
